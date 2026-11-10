@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMEN — Visual Journal & Archive</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Newsreader (Refined editorial serif) & Plus Jakarta Sans (Clean geometric sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Newsreader"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            canvas: '#0B0B0C',       /* Deep obsidian dark */
+            surface: '#141416',      /* Elevated dark card surface */
+            stroke: '#222226',       /* Hairline border */
+            charcoal: '#F4F4F5',     /* Crisp light text */
+            muted: '#8E8E93',        /* Soft neutral gray */
+            accent: '#D4A373',       /* Warm bronze / muted gold accent */
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0B0B0C;
+      color: #F4F4F5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif-heading {
+      font-family: 'Newsreader', serif;
+    }
+
+    /* Subtle image hover zoom */
+    .img-zoom-container img {
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+    }
+    .img-zoom-container:hover img {
+      transform: scale(1.035);
+    }
+
+    /* Modal fade in / out */
+    .lightbox-enter {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    .lightbox-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-accent selection:text-black">
+
+  <!-- ================= STICKY HEADER ================= -->
+  <header class="sticky top-0 z-40 bg-[#0B0B0C]/85 backdrop-blur-md border-b border-stroke transition-all px-6 sm:px-12 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo / Identity -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <span class="w-2.5 h-2.5 rounded-full bg-accent transition-transform group-hover:scale-125"></span>
+        <span class="font-serif-heading text-xl sm:text-2xl tracking-tight font-medium text-charcoal">NOIR & LUMEN</span>
+        <span class="text-[11px] font-mono tracking-widest text-muted uppercase hidden sm:inline pl-2 border-l border-stroke">Visual Archive</span>
+      </a>
+
+      <!-- Minimal Navigation -->
+      <nav class="flex items-center space-x-6 sm:space-x-8 text-xs tracking-wider uppercase font-medium text-muted">
+        <a href="#gallery" class="text-charcoal transition-colors hover:text-accent">Gallery</a>
+        <a href="#about" class="transition-colors hover:text-charcoal">Philosophy</a>
+        <a href="#contact" class="transition-colors hover:text-charcoal">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO INTRO ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-12 pt-16 sm:pt-24 pb-12 w-full">
+    <div class="max-w-3xl space-y-4">
+      <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-muted">
+        <span>Monochrome & Ambient Light • 2024–2026</span>
+        <span>—</span>
+        <span>Obsidian Vol. IV</span>
+      </div>
+      <h1 class="font-serif-heading text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] tracking-tight text-charcoal">
+        Shadows, architectural silence, & raw composition.
+      </h1>
+      <p class="text-base sm:text-lg text-muted font-light leading-relaxed max-w-xl pt-2">
+        A neat, distraction-free visual journal tuned for dark surfaces. Designed to allow deep contrast, dramatic highlights, and camera specifications to stand forward with quiet precision.
+      </p>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="mt-12 pt-6 border-t border-stroke flex flex-wrap items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2" id="filter-container">
+        <button onclick="applyFilter('all')" data-filter="all" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white text-black transition-all">
+          All (8)
+        </button>
+        <button onclick="applyFilter('architecture')" data-filter="architecture" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-muted hover:text-charcoal border border-transparent hover:border-stroke transition-all">
+          Architecture
+        </button>
+        <button onclick="applyFilter('portraits')" data-filter="portraits" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-muted hover:text-charcoal border border-transparent hover:border-stroke transition-all">
+          Portraits
+        </button>
+        <button onclick="applyFilter('street')" data-filter="street" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-muted hover:text-charcoal border border-transparent hover:border-stroke transition-all">
+          Street & Urban
+        </button>
+        <button onclick="applyFilter('nature')" data-filter="nature" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-muted hover:text-charcoal border border-transparent hover:border-stroke transition-all">
+          Minimal & Nature
+        </button>
+      </div>
+
+      <div class="text-xs font-mono text-muted hidden md:block">
+        <span id="active-count">8</span> frames archived
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY FEED ================= -->
+  <main id="gallery" class="max-w-7xl mx-auto px-6 sm:px-12 pb-24 w-full flex-grow">
+    <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Items dynamically populated via JavaScript for instant filtering and inspection -->
+    </div>
+  </main>
+
+  <!-- ================= ABOUT / ESSAY STRIP ================= -->
+  <section id="about" class="border-t border-stroke bg-surface/60 py-16 sm:py-20 px-6 sm:px-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+      <div class="md:col-span-4 space-y-2">
+        <span class="text-xs font-mono uppercase tracking-widest text-muted">Aesthetic Philosophy</span>
+        <h2 class="font-serif-heading text-3xl sm:text-4xl font-normal text-charcoal">The calm of deep contrast.</h2>
+      </div>
+      <div class="md:col-span-8 space-y-4 text-sm sm:text-base text-muted font-light leading-relaxed">
+        <p>
+          Dark themes provide photography with natural theatrical framing. By eliminating high glare surfaces, the human eye is guided directly into tonal values: delicate halations, specular highlights, and the emotional quietude of low-key lighting.
+        </p>
+        <p>
+          Each captured photograph in this archive is recorded with honest metadata—documenting optical choices, focal compression, and the emotional resonance of natural light.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="border-t border-stroke py-12 px-6 sm:px-12 bg-canvas text-xs text-muted">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <span class="font-serif-heading text-lg text-charcoal">NOIR & LUMEN</span>
+        <span>•</span>
+        <span>Minimal Black Visual Archive</span>
+      </div>
+
+      <div class="flex items-center space-x-6 font-mono text-[11px] uppercase tracking-wider">
+        <a href="mailto:archive@noir-lumen.design" class="hover:text-charcoal transition-colors">archive@noir-lumen.design</a>
+        <a href="#" class="hover:text-charcoal transition-colors">Instagram</a>
+        <a href="#" class="hover:text-charcoal transition-colors">Unsplash</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= LIGHTBOX MODAL OVERLAY ================= -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden items-center justify-center p-4 sm:p-8 transition-opacity duration-300">
+    <div class="relative max-w-5xl w-full bg-surface rounded-xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[92vh] border border-stroke">
+      
+      <!-- Close Button -->
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-surface/90 hover:bg-neutral-800 text-charcoal flex items-center justify-center transition shadow-sm border border-stroke" title="Close (Esc)">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <!-- Large Image Area -->
+      <div class="md:w-3/5 bg-[#09090A] flex items-center justify-center overflow-hidden p-2 sm:p-4">
+        <img id="modal-img" src="" alt="Detailed View" class="max-h-[55vh] md:max-h-[82vh] w-auto max-w-full object-contain rounded-md" onerror="this.src='https://placehold.co/800x1000/18181B/FFF?text=Image+Unavailable'">
+      </div>
+
+      <!-- Metadata & Story Details Panel -->
+      <div class="md:w-2/5 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto bg-surface">
+        <div class="space-y-6">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-muted uppercase tracking-wider mb-2">
+              <span id="modal-category" class="text-accent">Architecture</span>
+              <span id="modal-date">Oct 2025</span>
+            </div>
+            <h3 id="modal-title" class="font-serif-heading text-2xl sm:text-3xl font-medium text-charcoal leading-snug">
+              Minimal Concrete Facade
+            </h3>
+            <p id="modal-desc" class="text-xs sm:text-sm text-muted mt-3 leading-relaxed">
+              Quiet geometry under morning side-lighting.
+            </p>
+          </div>
+
+          <!-- Camera Spec Sheet (Clean Table) -->
+          <div class="border-t border-b border-stroke py-4 space-y-2.5 text-xs">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-muted block">EXIF / Camera Telemetry</span>
+            <div class="flex justify-between py-1 border-b border-stroke/60">
+              <span class="text-muted">Camera Body</span>
+              <span class="font-mono text-charcoal font-medium" id="modal-camera">Leica M11</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-stroke/60">
+              <span class="text-muted">Optics</span>
+              <span class="font-mono text-charcoal font-medium" id="modal-lens">Summilux-M 35mm f/1.4</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-stroke/60">
+              <span class="text-muted">Settings</span>
+              <span class="font-mono text-charcoal font-medium" id="modal-settings">1/500s • f/2.8 • ISO 100</span>
+            </div>
+            <div class="flex justify-between py-1">
+              <span class="text-muted">Location</span>
+              <span class="text-charcoal font-medium" id="modal-location">Kyoto, Japan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6 mt-4 flex items-center justify-between text-xs text-muted border-t border-stroke">
+          <span class="font-mono text-[11px]">Archive Monograph</span>
+          <button onclick="shareImagePrompt()" class="text-xs font-medium text-accent hover:underline flex items-center gap-1">
+            <span>Copy Link</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#1F1F23] text-charcoal text-xs font-mono py-2.5 px-4 rounded-lg shadow-2xl border border-stroke opacity-0 translate-y-2 transition-all duration-300 pointer-events-none">
+    Copied link to clipboard.
+  </div>
+
+  <!-- ================= DATA & JAVASCRIPT LOGIC ================= -->
+  <script>
+    const photos = [
+      {
+        id: 1,
+        title: "Brutalist Shadow Study",
+        category: "architecture",
+        categoryLabel: "Architecture",
+        date: "November 2025",
+        location: "Berlin, Germany",
+        camera: "Leica M11 Monochrome",
+        lens: "Summilux 35mm f/1.4",
+        settings: "1/640s • f/4.0 • ISO 64",
+        desc: "Hard diagonal shadows dividing raw textured concrete from quiet morning negative space.",
+        aspectRatio: "aspect-[4/5]",
+        url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: 2,
+        title: "Portrait in Low Sidelight",
+        category: "portraits",
+        categoryLabel: "Portraits",
+        date: "October 2025",
+        location: "Lisbon, Portugal",
+        camera: "Contax G2 (Tri-X 400)",
+        lens: "Zeiss Planar 45mm f/2",
+        settings: "1/250s • f/2.0 • ISO 400",
+        desc: "Specular rim illumination highlighting contemplative posture against a velvety deep background.",
+        aspectRatio: "aspect-[3/4]",
+        url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: 3,
+        title: "Geometry of the Void",
+        category: "architecture",
+        categoryLabel: "Architecture",
+        date: "September 2025",
+        location: "Valencia, Spain",
+        camera: "Sony α7R V",
+        lens: "FE 24-70mm f/2.8 GM II",
+        settings: "1/800s • f/5.6 • ISO 100",
+        desc: "Rhythmic architectural ribbing starkly set against high sky gradients.",
+        aspectRatio: "aspect-[16/10]",
+        url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: 4,
+        title: "Solitary Crossing at Dusk",
+        category: "street",
+        categoryLabel: "Street & Urban",
+        date: "December 2025",
+        location: "Zurich, Switzerland",
+        camera: "Fujifilm X100VI",
+        lens: "23mm f/2.0 Fixed",
+        settings: "1/125s • f/2.8 • ISO 800",
+        desc: "Wet asphalt reflections and warm headlamps cutting through cold cobalt evening air.",
+        aspectRatio: "aspect-[4/5]",
+        url: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: 5,
+        title: "Misty Basalt Precipice",
+        category: "nature",
+        categoryLabel: "Minimal & Nature",
+        date: "August 2025",
+        location: "Faroe Islands",
+        camera: "Hasselblad 907X",
+        lens: "XCD 45mm f/4 P",
+        settings: "1/320s • f/8.0 • ISO 100",
+        desc: "Dense Atlantic fog drifting across sheer cliff profiles and deep ocean swells.",
+        aspectRatio: "aspect-[16/10]",
+        url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: 6,
+        title: "Sculptural Silhouette",
+        category: "portraits",
+        categoryLabel: "Portraits",
+        date: "July 2025",
+        location: "Milan, Italy",
+        camera: "Leica SL2",
+        lens: "Apo-Summicron-SL 50mm",
+        settings: "1/400s • f/2.4 • ISO 50",
+        desc: "High-contrast study in negative space, drape textures, and anatomical form.",
+        aspectRatio: "aspect-[3/4]",
+        url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: 7,
+        title: "Obsidian Intersection",
+        category: "street",
+        categoryLabel: "Street & Urban",
+        date: "June 2025",
+        location: "Tokyo, Japan",
+        camera: "Ricoh GR IIIx",
+        lens: "40mm f/2.8 Fixed",
+        settings: "1/1000s • f/4.0 • ISO 200",
+        desc: "A solitary walker slicing through dramatic skyscraper shadows and white crosswalk marks.",
+        aspectRatio: "aspect-[16/10]",
+        url: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: 8,
+        title: "Tyndall Canopy Rays",
+        category: "nature",
+        categoryLabel: "Minimal & Nature",
+        date: "May 2025",
+        location: "Black Forest, Germany",
+        camera: "Sony α7R V",
+        lens: "FE 70-200mm f/4 G",
+        settings: "1/200s • f/5.6 • ISO 160",
+        desc: "Dramatic shafts of early dawn light cutting through dense evergreen mist.",
+        aspectRatio: "aspect-[4/5]",
+        url: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80"
+      }
+    ];
+
+    let currentFilter = 'all';
+
+    // Render Gallery
+    function renderGallery(filter = 'all') {
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '';
+
+      const filtered = filter === 'all' ? photos : photos.filter(p => p.category === filter);
+      document.getElementById('active-count').textContent = filtered.length;
+
+      filtered.forEach(photo => {
+        const card = document.createElement('article');
+        card.className = "group cursor-pointer flex flex-col bg-surface rounded-lg p-3 sm:p-3.5 border border-stroke shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:border-accent/40 transition-all duration-300";
+        card.onclick = () => openLightbox(photo.id);
+
+        card.innerHTML = `
+          <div class="overflow-hidden rounded-md bg-[#0F0F11] img-zoom-container ${photo.aspectRatio} relative">
+            <img 
+              src="${photo.url}" 
+              alt="${photo.title}" 
+              loading="lazy" 
+              class="w-full h-full object-cover filter brightness-[0.92] group-hover:brightness-100 transition-all"
+              onerror="this.src='https://placehold.co/600x800/18181B/FFF?text=${encodeURIComponent(photo.title)}'"
+            />
+            <div class="absolute bottom-3 left-3 bg-[#0B0B0C]/85 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono tracking-wider text-charcoal uppercase border border-stroke shadow-sm">
+              ${photo.camera}
+            </div>
+          </div>
+          
+          <div class="pt-3 pb-1 px-1 flex flex-col justify-between flex-grow">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-muted uppercase">
+                <span class="text-accent/90">${photo.categoryLabel}</span>
+                <span>${photo.location.split(',')[0]}</span>
+              </div>
+              <h3 class="font-serif-heading text-lg sm:text-xl font-normal text-charcoal group-hover:text-accent transition-colors mt-1">
+                ${photo.title}
+              </h3>
+            </div>
+            
+            <div class="pt-3 mt-2 border-t border-stroke/70 flex items-center justify-between text-[11px] text-muted">
+              <span>${photo.lens}</span>
+              <span class="font-mono text-charcoal group-hover:text-accent font-medium">Specs →</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Filter Buttons logic
+    function applyFilter(category) {
+      currentFilter = category;
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        if (btn.dataset.filter === category) {
+          btn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white text-black transition-all";
+        } else {
+          btn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-medium text-muted hover:text-charcoal border border-transparent hover:border-stroke transition-all";
+        }
+      });
+      renderGallery(category);
+    }
+
+    // Lightbox modal functionality
+    function openLightbox(photoId) {
+      const photo = photos.find(p => p.id === photoId);
+      if (!photo) return;
+
+      document.getElementById('modal-img').src = photo.url;
+      document.getElementById('modal-img').alt = photo.title;
+      document.getElementById('modal-title').textContent = photo.title;
+      document.getElementById('modal-desc').textContent = photo.desc;
+      document.getElementById('modal-category').textContent = photo.categoryLabel;
+      document.getElementById('modal-date').textContent = photo.date;
+      document.getElementById('modal-camera').textContent = photo.camera;
+      document.getElementById('modal-lens').textContent = photo.lens;
+      document.getElementById('modal-settings').textContent = photo.settings;
+      document.getElementById('modal-location').textContent = photo.location;
+
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close on backdrop click
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard controls (Esc to close)
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // Toast simulation for link copy
+    function shareImagePrompt() {
+      const dummyUrl = window.location.href;
+      const tempInput = document.createElement("input");
+      tempInput.value = dummyUrl;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      const toast = document.getElementById('toast');
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2000);
+    }
+
+    // Initial load
+    window.onload = function() {
+      renderGallery('all');
+    };
+  </script>
+</body>
+</html>
