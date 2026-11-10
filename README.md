@@ -1,121 +1,108 @@
-# Muzain Shehzade V M — Game-Themed Noir & Lumen Portfolio
+# Muzain Shehzade V M — 1st Year B.Tech CS (AI) Portfolio
 
-A cyberpunk, tactical RPG-themed personal portfolio website crafted for **Muzain Shehzade V M**, first-batch B.Tech CS (AI) student at Thejus Engineering College, Thrissur, Kerala.
+A cyberpunk, tactical game-themed personal portfolio website crafted for **Muzain Shehzade V M**, a passionate **first-year Computer Science & Engineering (Artificial Intelligence)** student at Thejus Engineering College, Thrissur, Kerala (Inaugural CS-AI Batch 2024–2028).
 
-Combines the restrained elegance of the **Noir & Lumen** visual archive with an interactive **Cyberpunk / Tactical RPG HUD** aesthetic.
-
----
-
-## 🎮 Game Theme & Features
-
-### 1. Player Status HUD
-- **Player Stats**: `PLAYER 1: MUZAIN [LVL 22]`
-- **Class**: `NEURAL ARCHITECT & SYSTEMS DEVELOPER`
-- **Guild**: `Thejus Engineering College // CS (AI) Inaugural Batch`
-- **Cadet Rank**: `S-CLASS CADET`
-- **Live Status Gauges**: Dynamic Health Points (`HP 100%`), Mana Gauge (`MP 92%`), and Cohort EXP (`THEJUS '26`).
-
-### 2. Procedural WebAudio SFX Engine (`src/utils/sound.ts`)
-- **Zero MP3 / Asset Dependencies**: Procedurally synthesizes sound waves in real time via the Web Audio API.
-- **Audio Effects**:
-  - Tactical UI blips on link and button hovers
-  - Confirm chirps on navigation clicks
-  - Power-up fanfare on transmission submission and game start
-  - Laser blasts and 8-bit explosions in the arcade module
-- **Audio Toggle**: One-click mute/unmute control in the top Game HUD.
-
-### 3. Retro CRT Phosphor Scanlines (`[ 📺 CRT: ON/OFF ]`)
-- One-click CRT monitor mode with authentic horizontal scanlines and phosphor bloom.
-
-### 4. Playable Retro Arcade Mini-Game (`[ 🎮 PLAY ARCADE [G] ]`)
-- **Game**: *Neural Defender // Muzain AI*
-- Built natively with HTML5 Canvas and 60 FPS animation loop.
-- **Controls**:
-  - **Move**: `A` / `D` or `←` / `→` arrow keys
-  - **Fire**: `Spacebar` or mouse click
-  - **Objective**: Blast runtime memory leaks, null pointers, and latency bugs!
-  - **Shortcut**: Press **`G`** anywhere on the page to launch instantly!
-
-### 5. Guild Quest Board (Selected Work)
-- Projects reframed as **Active Quests & Completed Missions**:
-  - Quest codes (`QUEST_01`, `QUEST_02`, etc.)
-  - Quest difficulty ranks (`S-CLASS`, `A-CLASS`)
-  - Experience rewards (`+4,500 EXP`, `+3,200 EXP`)
-  - Loot drops & deliverables (e.g. `4-Bit Quantized Weights`, `SQLite-Wasm Engine`)
-  - Interactive **Mission Briefing Modal** with runtime telemetry and GitHub repository access.
-
-### 6. RPG Skill Tree Matrix (Technical Skills)
-- 4-Tier Skill Tree (Neural Core, Systems & Memory in C, 60fps UI Engines, DevOps & Tooling).
-- Interactive skill nodes with mastery level (`LVL 96`), rank badges (`S`, `A`), and stat bars.
-
-### 7. Character Lore & Codex (Philosophy / About)
-- Full RPG attribute matrix:
-  - *Intelligence (96/100)*
-  - *Systems Craft (92/100)*
-  - *Vision & Architecture (94/100)*
-  - *Agility (88/100)*
-- Character Passives: *Deep Focus (+50% Flow State)*, *Algorithmic Precision (+40% Efficiency)*, and *Noir & Lumen Aura (-80% Friction)*.
-- Campaign progression timeline tracking completed and active raid milestones.
-
-### 8. Guild Transmission Terminal (Contact Section)
-- 256-bit encrypted transmission dispatch form with automatic `mailto:` fallback.
-- One-click copy email button with feedback tooltip.
-- Real-time IST clock indicator (`Thrissur Grid • UTC+5:30`).
+Combines the restrained, high-contrast **"Noir & Lumen"** dark aesthetic with an interactive **Cyberpunk / Tactical RPG HUD** and playable retro arcade module.
 
 ---
 
-## ⌨️ Tactical Hotkeys
+## 👨‍💻 About Muzain Shehzade
 
-| Key | Action |
-| :--- | :--- |
-| **`G`** | Launch Retro Arcade Mini-Game (*Neural Defender*) |
-| **`1`** | Warp to Guild Quest Archive (`#work`) |
-| **`2`** | Warp to Character Lore & Codex (`#about`) |
-| **`3`** | Warp to RPG Skill Tree (`#skills`) |
-| **`4`** | Warp to Guild Dispatch Terminal (`#contact`) |
-| **`T`** | Return to peak of archive |
-| **`C`** | Copy direct email address |
-| **`?`** | Toggle Keyboard Shortcuts HUD |
-| **`Esc`** | Dismiss open modals / Return to HUD |
+- **Discipline**: 1st Year B.Tech in Computer Science & Engineering (Artificial Intelligence)
+- **Institution**: Thejus Engineering College, Thrissur, Kerala (Inaugural Batch)
+- **Core Focus**: C Programming discipline, Python scripting, foundational Data Structures & Algorithms, Computer Vision basics, and modern web interfaces.
+- **Interests**: AI/ML foundations, algorithm visualizers, game development in C, and open-source collaboration.
 
 ---
 
-## 🚀 Quick Start
+## 🎮 Game-Themed Features
 
-### 1. Install Dependencies
+- **Player 1 HUD**: `ROOKIE INITIATE [LVL 01]` with real-time HP/MP/EXP gauges and custom passives (*Freshman Curiosity*, *C Language Discipline*, *Late Night Build Sessions*).
+- **Procedural WebAudio SFX Engine**: Real-time synthesized sci-fi sound effects (blips, chimes, laser blasts) with zero external audio file dependencies.
+- **Retro CRT Scanlines**: One-click vintage phosphor CRT scanline filter.
+- **Playable Arcade Mini-Game** (*Neural Defender // Muzain AI*): Built with HTML5 Canvas; pilot a tactical neon ship to blast runtime memory leaks and bugs (press **`G`** to play).
+- **Secret Konami Code Easter Egg**: Enter `↑ ↑ ↓ ↓ ← → ← → B A` anywhere on the page to unlock **God Mode (LVL 99)**!
+- **First-Year Projects**:
+  1. **Pathfinder** — Algorithm Visualizer in Python (A*, BFS, DFS grid exploration with Pygame)
+  2. **VisionCount** — Hand Landmark & Gesture Tracker (Real-time OpenCV & MediaPipe)
+  3. **JarvisLite** — Python Desktop Voice Assistant (Offline pyttsx3 speech companion)
+  4. **GradeSync** — KTU / Thejus SGPA & CGPA Tracker (Clean student grade calculator)
+  5. **DungeonCrawler** — Text RPG in Pure C (Pointers, structs & save states in standard C99)
+  6. **FocusArc** — Minimalist Study Session Timer (Pomodoro companion for exam prep)
+- **Tactical Hotkeys**:
+  - `1` → Projects Archive
+  - `2` → Character Lore & Codex
+  - `3` → Skills Tree
+  - `4` → Contact Channel
+  - `G` → Arcade Mini-Game
+  - `T` → Top of Page
+  - `C` → Copy Direct Email
+
+---
+
+## 📁 Project Structure
+
+```text
+muzain-shehzade/
+├── src/
+│   ├── app/
+│   │   ├── globals.css           # Noir tokens, film grain, retro CRT scanline mode
+│   │   ├── icon.svg              # Geometric monogram SVG favicon
+│   │   ├── layout.tsx            # SEO, OpenGraph tags, Google Fonts, global providers
+│   │   └── page.tsx              # Main single-page application with arcade & HUD
+│   ├── components/
+│   │   ├── AmbientGlow.tsx       # Cursor-following radial light & subtle grain
+│   │   ├── ArcadeMiniGame.tsx    # Playable retro canvas arcade game (Neural Defender)
+│   │   ├── ContactSection.tsx    # Student dispatch & collaboration form
+│   │   ├── CustomCursor.tsx      # Fluid desktop cursor with magnetic expansion
+│   │   ├── Footer.tsx            # Monochrome footer with back-to-top trigger
+│   │   ├── GameHUD.tsx           # Top status bar with HP/MP/EXP, CRT & SFX toggles
+│   │   ├── Hero.tsx              # Word-mask headline reveal & real-time telemetry
+│   │   ├── Icons.tsx             # Inline SVG icons (GitHub, LinkedIn, Instagram)
+│   │   ├── KeyboardShortcuts.tsx # Keyboard navigation HUD & quick jumps
+│   │   ├── KonamiCode.tsx        # Secret Konami Easter egg (↑ ↑ ↓ ↓ ← → ← → B A)
+│   │   ├── Navbar.tsx            # Sticky blurred glass navbar
+│   │   ├── PageIntro.tsx         # Initial load calibration preloader
+│   │   ├── PhilosophyAbout.tsx   # Character lore, attribute sheet & Dennis Ritchie quote
+│   │   ├── ProjectCard.tsx       # 3D tilt cards with loot drops & difficulty badges
+│   │   ├── ProjectModal.tsx      # Mission briefing & telemetry inspection modal
+│   │   ├── ScrollProgressBar.tsx # Top copper progress bar
+│   │   ├── SelectedWork.tsx      # Responsive project grid with category filters
+│   │   ├── SkillsSection.tsx     # 4-tier skill tree & infinite marquee
+│   │   └── SmoothScroll.tsx      # Lenis 60fps smooth scrolling wrapper
+│   ├── data/
+│   │   └── portfolio.ts          # ⚡ SINGLE DATA FILE for all student info & projects
+│   └── utils/
+│       └── sound.ts              # Web Audio API procedural sound synthesizer
+├── next.config.mjs
+├── tailwind.config.ts
+└── package.json
+```
+
+---
+
+## 🚀 Quick Start (Local Run)
+
 ```bash
+# 1. Install dependencies
 npm install
-```
 
-### 2. Run Local Server
-```bash
+# 2. Run local development server
 npm run dev
-# or for production performance:
-npm run build && npm run start
 ```
-Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+
+Visit **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## ✏️ Customizing Your Content
+## 🌐 Deploy to Vercel or Netlify (Free)
 
-All data (player stats, quests, skills, socials, education) lives in a single typed configuration file: **[`src/data/portfolio.ts`](file:///c:/Users/user/Desktop/muzain%20shehzade/src/data/portfolio.ts)**.
-
-Edit this file to tweak your level, add new quests, or update your contact frequencies.
-
----
-
-## 🌐 Deploy for Free on Vercel or Netlify
-
-1. Push your code to GitHub:
-   ```bash
-   git add .
-   git commit -m "feat: game-themed noir & lumen portfolio"
-   git push origin main
-   ```
-2. Log into [vercel.com](https://vercel.com) and click **"Add New..."** -> **"Project"**.
-3. Select your repository and click **"Deploy"**. Vercel will automatically build and deploy with free global CDN and SSL.
+This repository is already configured for instant static hosting:
+1. Go to [vercel.com](https://vercel.com) and log in with your GitHub account.
+2. Click **"Add New..."** -> **"Project"**.
+3. Select `muzaain/muzain-shehzade-v-m`.
+4. Click **"Deploy"**.
 
 ---
 
-© 2026 Muzain Shehzade V M. Noir & Lumen Game Edition.
+© 2026 Muzain Shehzade V M. First-Year B.Tech CS (AI) • Thejus Engineering College.

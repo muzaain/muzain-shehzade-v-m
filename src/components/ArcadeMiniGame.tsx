@@ -241,10 +241,12 @@ export function ArcadeMiniGame({
       gameState.current.animationId = requestAnimationFrame(loop);
     }
 
+    const currentGameState = gameState.current;
+
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
-      const activeAnim = gameState.current.animationId;
+      const activeAnim = currentGameState.animationId;
       if (activeAnim) {
         cancelAnimationFrame(activeAnim);
       }

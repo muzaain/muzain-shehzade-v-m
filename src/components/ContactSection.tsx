@@ -69,12 +69,12 @@ export function ContactSection() {
             </div>
 
             <h2 className="font-serif text-4xl sm:text-6xl font-normal leading-[1.05] text-charcoal">
-              Initiate transmission &amp; quest contracts.
+              Let&apos;s build something together.
             </h2>
 
             <p className="text-sm sm:text-base text-muted font-light leading-relaxed">
-              Seeking an S-Rank Cadet for Summer / Fall &apos;25 research internships, distributed systems
-              engineering raids, or collaborative guild projects? Transmit your contract below.
+              Always excited to connect with fellow student developers, participate in collegiate hackathons,
+              explore open-source projects, or discuss AI and computer science. Transmit a message below!
             </p>
           </div>
 
@@ -284,10 +284,10 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-xl bg-canvas border border-stroke text-charcoal focus:border-copper/70 focus:outline-none transition-colors font-mono text-xs"
                   >
-                    <option value="ai-internship">Summer / Fall &apos;25 Internship Opportunity</option>
-                    <option value="research-collab">AI Research &amp; Neural Architecture Raid</option>
-                    <option value="fullstack-project">Full-Stack / Systems Engineering Build</option>
-                    <option value="general-inquiry">General Discussion &amp; Mentorship</option>
+                    <option value="hackathon-collab">Student Hackathon Collaboration</option>
+                    <option value="open-source-project">Open Source / Coding Project</option>
+                    <option value="study-discussion">AI &amp; CS Study Discussion</option>
+                    <option value="general-inquiry">General Hello &amp; Mentorship</option>
                   </select>
                 </div>
 

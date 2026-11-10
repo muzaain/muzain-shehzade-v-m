@@ -27,12 +27,12 @@ export function SkillsSection() {
         </div>
 
         <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] text-charcoal">
-          Player Skill Tree &amp; Active Loadout.
+          Skills &amp; Learning Roadmap.
         </h2>
 
         <p className="text-sm sm:text-base text-muted font-light leading-relaxed">
-          Stat-allocated skill nodes mastered across machine learning models, low-level systems craft in C,
-          and responsive Next.js web engines.
+          My first-year technical toolkit: core C programming discipline, Python data &amp; AI libraries,
+          responsive web styling, and essential command-line tools.
         </p>
       </div>
 
@@ -77,10 +77,12 @@ export function SkillsSection() {
                     data-cursor="pointer"
                   >
                     <div className="flex items-center gap-2 min-w-0">
-                      <span className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold ${
+                      <span className={`px-1.5 py-0.5 rounded flex items-center justify-center text-[9px] font-bold ${
                         skill.rank === "S"
                           ? "bg-copper/20 text-copper border border-copper/40"
-                          : "bg-surface text-muted border border-stroke"
+                          : skill.rank === "A"
+                          ? "bg-surface text-charcoal border border-stroke"
+                          : "bg-surface-elevated text-muted border border-stroke"
                       }`}>
                         {skill.rank}
                       </span>

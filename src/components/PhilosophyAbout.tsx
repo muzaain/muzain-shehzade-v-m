@@ -8,10 +8,10 @@ export function PhilosophyAbout() {
   const { profile, philosophy, milestones, player } = portfolioData;
 
   const statItems = [
-    { label: "INTELLIGENCE", val: player.stats.intelligence },
-    { label: "SYSTEMS CRAFT", val: player.stats.systemsCraft },
-    { label: "VISION & ARCHITECTURE", val: player.stats.architecturalVision },
-    { label: "AGILITY (60 FPS)", val: player.stats.agility },
+    { label: "CURIOSITY & DRIVE", val: player.stats.curiosity },
+    { label: "PYTHON & SCRIPTING", val: player.stats.pythonMastery },
+    { label: "C PROGRAMMING CORE", val: player.stats.cFoundations },
+    { label: "WEB CRAFT & UI", val: player.stats.webCraft },
   ];
 
   return (
@@ -146,7 +146,7 @@ export function PhilosophyAbout() {
                         {m.role}
                       </h4>
                       <span className={`px-2 py-0.5 rounded text-[9px] font-mono uppercase ${
-                        m.questStatus === "ACTIVE IN PROGRESS"
+                        m.questStatus === "CURRENTLY GRINDING"
                           ? "bg-emerald-950/80 border border-emerald-500/30 text-emerald-300"
                           : "bg-surface border border-stroke text-muted"
                       }`}>

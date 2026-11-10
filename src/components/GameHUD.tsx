@@ -89,7 +89,7 @@ export function GameHUD({ onOpenArcade }: { onOpenArcade: () => void }) {
             <div className="w-20 h-2 bg-surface rounded-full overflow-hidden border border-stroke">
               <div className="h-full bg-copper w-full" />
             </div>
-            <span className="text-copper text-[10px]">THEJUS &apos;26</span>
+            <span className="text-copper text-[10px]">1ST YEAR CS (AI)</span>
           </div>
         </div>
 

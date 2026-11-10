@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Trophy, Zap, Sparkles, X, ShieldAlert } from "lucide-react";
+import { Trophy, X } from "lucide-react";
 import { sound } from "@/utils/sound";
 
 const KONAMI_SEQUENCE = [
@@ -112,7 +112,7 @@ export function KonamiCode() {
             </div>
 
             <p className="text-[11px] font-mono text-muted/80">
-              Muzain Shehzade&apos;s neural models and systems are now running with maximum hyperparameter tuning and zero memory latency.
+              Muzain Shehzade&apos;s first-year cadet stats have been boosted with maximum learning velocity and infinite curiosity!
             </p>
 
             <button

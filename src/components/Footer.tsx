@@ -25,7 +25,7 @@ export function Footer() {
             </span>
           </div>
           <p className="text-[11px] font-mono text-muted/70">
-            First-batch B.Tech CS (AI) • Thejus Engineering College, Thrissur, Kerala
+            First-year B.Tech CS (AI) • Inaugural Batch • Thejus Engineering College, Thrissur, Kerala
           </p>
         </div>
 

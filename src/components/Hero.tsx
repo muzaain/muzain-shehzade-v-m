@@ -70,11 +70,11 @@ export function Hero({ onOpenArcade }: { onOpenArcade: () => void }) {
           <span className="w-2 h-2 rounded-full bg-copper animate-copper-pulse" />
           <span className="text-copper font-medium">PLAYER: {profile.name.toUpperCase()}</span>
           <span className="text-white/20">•</span>
-          <span className="text-emerald-400 font-medium">LVL {player.level} {player.classTitle.toUpperCase()}</span>
+          <span className="text-emerald-400 font-medium">1ST YEAR CS (AI)</span>
           <span className="text-white/20">•</span>
-          <span>THEJUS &apos;26 CS (AI)</span>
+          <span>THEJUS ENGG COLLEGE</span>
           <span className="text-white/20 hidden sm:inline">—</span>
-          <span className="hidden sm:inline text-muted/70">ARCHIVE VOL. 01</span>
+          <span className="hidden sm:inline text-muted/70">PORTFOLIO VOL. 01</span>
         </motion.div>
 
         {/* Huge Serif Headline with Word Mask Animation */}
@@ -92,7 +92,7 @@ export function Hero({ onOpenArcade }: { onOpenArcade: () => void }) {
               <motion.span
                 variants={wordVariants}
                 className={`inline-block ${
-                  word.toLowerCase().includes("game-engine") || word.toLowerCase().includes("precision")
+                  word.toLowerCase().includes("intelligence") || word.toLowerCase().includes("fundamentals")
                     ? "italic font-light text-copper"
                     : ""
                 }`}
@@ -195,7 +195,7 @@ export function Hero({ onOpenArcade }: { onOpenArcade: () => void }) {
           </span>
           <div className="flex items-center gap-1.5 text-charcoal font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Seeking Guild Quests</span>
+            <span>Open for Hackathons &amp; Collabs</span>
           </div>
         </div>
 

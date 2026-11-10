@@ -1,12 +1,12 @@
 export interface Project {
   id: string;
-  questCode: string; // e.g. "QUEST_01"
-  difficulty: "S-CLASS" | "A-CLASS" | "RAID";
+  questCode: string;
+  difficulty: "NOVICE" | "INTERMEDIATE" | "CHALLENGE";
   expReward: string;
   lootDrops: string[];
   title: string;
   subtitle: string;
-  category: "ai" | "web" | "systems" | "creative";
+  category: "ai" | "web" | "systems" | "games";
   categoryLabel: string;
   year: string;
   techStack: string[];
@@ -23,8 +23,8 @@ export interface Project {
 
 export interface SkillItem {
   name: string;
-  level: number; // 0-100
-  rank: "S" | "A" | "B";
+  level: number;
+  rank: "S" | "A" | "LEARNING";
   tag: string;
   manaCost?: string;
 }
@@ -42,7 +42,7 @@ export interface Milestone {
   organization: string;
   description: string;
   location: string;
-  questStatus: "COMPLETED" | "ACTIVE IN PROGRESS";
+  questStatus: "COMPLETED" | "CURRENTLY GRINDING";
 }
 
 export interface PlayerStats {
@@ -55,10 +55,10 @@ export interface PlayerStats {
   exp: { current: number; max: number };
   server: string;
   stats: {
-    intelligence: number;
-    systemsCraft: number;
-    architecturalVision: number;
-    agility: number;
+    curiosity: number;
+    pythonMastery: number;
+    cFoundations: number;
+    webCraft: number;
   };
   passives: {
     title: string;
@@ -108,35 +108,35 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   player: {
-    level: 22,
-    classTitle: "Neural Architect & Systems Developer",
-    guild: "Thejus Engg College // CS (AI) Inaugural Batch",
-    rank: "S-CLASS CADET",
+    level: 1,
+    classTitle: "First-Year Computer Science (AI) Cadet",
+    guild: "Thejus Engineering College // Inaugural CS (AI) Batch",
+    rank: "ROOKIE INITIATE [LVL 01]",
     hp: { current: 100, max: 100 },
-    mp: { current: 92, max: 100 },
-    exp: { current: 2026, max: 2026 },
-    server: "ASIA-SOUTH // THRISSUR_GRID",
+    mp: { current: 100, max: 100 },
+    exp: { current: 350, max: 1000 },
+    server: "THRISSUR_GRID // KERALA_NODE",
     stats: {
-      intelligence: 96,
-      systemsCraft: 92,
-      architecturalVision: 94,
-      agility: 88,
+      curiosity: 99,
+      pythonMastery: 82,
+      cFoundations: 80,
+      webCraft: 78,
     },
     passives: [
       {
-        title: "Deep Focus (Passive)",
-        effect: "+50% flow-state endurance during complex compiler & tensor debugging.",
-        icon: "🧠",
+        title: "First-Year Curiosity",
+        effect: "+100% learning velocity when exploring algorithms, neural concepts & web frameworks.",
+        icon: "🌱",
       },
       {
-        title: "Algorithmic Precision",
-        effect: "+40% efficiency in memory allocation and vector retrieval pipelines.",
+        title: "C Language Discipline",
+        effect: "+60% understanding of raw memory pointers, stack logic & hardware foundations.",
         icon: "⚡",
       },
       {
-        title: "Noir & Lumen Aura",
-        effect: "-80% cognitive interface friction via clean, distraction-free typography.",
-        icon: "⚔️",
+        title: "Late Night Build Sessions",
+        effect: "+40% problem-solving grit while debugging code and crafting projects from scratch.",
+        icon: "☕",
       },
     ],
   },
@@ -145,26 +145,26 @@ export const portfolioData: PortfolioData = {
     name: "Muzain Shehzade V M",
     shortName: "Muzain",
     monogram: "MS",
-    title: "AI Engineer & Systems Developer",
-    status: "SEEKING SUMMER / FALL '25 GUILD QUESTS",
-    availableFor: "Open for high-impact AI research contracts, distributed systems roles & engineering builds",
-    eyebrow: "PLAYER: MUZAIN // CLASS: AI SPECIALIST • THEJUS '26 • LVL 22",
-    headline: "Engineering intelligent worlds, with game-engine precision.",
+    title: "1st Year B.Tech Computer Science (AI) Student",
+    status: "FIRST-YEAR STUDENT // OPEN FOR HACKATHONS & COLLABS",
+    availableFor: "Open for beginner-friendly open-source builds, student hackathons, and study collaborations",
+    eyebrow: "1ST YEAR B.TECH CS (AI) • THEJUS ENGINEERING COLLEGE • THRISSUR, KERALA",
+    headline: "Starting my journey into Artificial Intelligence, from the fundamentals up.",
     bio: [
-      "Player 1: First-batch Computer Science & Artificial Intelligence undergraduate at Thejus Engineering College, Thrissur, Kerala.",
-      "Specializing in deep learning models, low-level C system architectures, and responsive 60fps web interfaces. I treat every codebase like a game-engine loop: zero dropped frames, predictable memory usage, and immaculate visual aesthetics.",
-      "Currently tackling multi-agent neural coordination, local vector retrieval dungeons, and sub-second speech synthesis pipelines."
+      "Hey! I am Muzain Shehzade, a first-year Computer Science and Engineering (Artificial Intelligence) student at Thejus Engineering College, Thrissur, Kerala — proud to be part of our college's very first CS (AI) batch.",
+      "As a first-year undergraduate, I am laying solid foundations: mastering C programming, building practical tools with Python, understanding data structures, and exploring the basics of machine learning and modern web development.",
+      "I love building things hands-on. From command-line tools and pathfinding visualizers to interactive web interfaces, I believe the best way to master computer science is by writing code every single day."
     ],
     location: {
       city: "Thrissur",
       state: "Kerala",
       country: "India",
       timezone: "Asia/Kolkata",
-      college: "Thejus Engineering College",
+      college: "Thejus Engineering College, Thrissur",
     },
     contact: {
       email: "muzainshehzade@gmail.com",
-      github: "https://github.com/muzainshehzade",
+      github: "https://github.com/muzaain",
       linkedin: "https://linkedin.com/in/muzainshehzade",
       instagram: "https://instagram.com/muzainshehzade",
       twitter: "https://x.com/muzainshehzade",
@@ -172,299 +172,302 @@ export const portfolioData: PortfolioData = {
   },
 
   stats: [
-    { label: "COHORT", value: "2022–26", detail: "Inaugural CS (AI) Batch" },
-    { label: "MAIN WEAPON", value: "PyTorch & C", detail: "Neural & Systems Core" },
-    { label: "FRONTEND DECK", value: "Next.js / TS", detail: "60 FPS Web UI" },
-    { label: "SERVER NODE", value: "Kerala, IN", detail: "IST UTC+5:30 Grid" },
+    { label: "ACADEMIC YEAR", value: "1st Year", detail: "B.Tech CS (AI) 2024–28" },
+    { label: "FOUNDATION", value: "C & Python", detail: "Core Logic & Scripting" },
+    { label: "EXPLORING", value: "AI & ML", detail: "Computer Vision & LLMs" },
+    { label: "CAMPUS", value: "Thejus", detail: "Thrissur, Kerala" },
   ],
 
   projects: [
     {
-      id: "neuro-scribe",
+      id: "pathfinding-visualizer",
       questCode: "QUEST_01",
-      difficulty: "S-CLASS",
-      expReward: "+4,500 EXP",
-      lootDrops: ["4-Bit Quantized Weights", "FastAPI Inference Demon", "ROC-AUC 0.94 Certificate"],
-      title: "NeuroScribe — Clinical Diagnostic Synthesizer",
-      subtitle: "Domain-adapted multimodal vision-language model for automated radiology synthesis",
+      difficulty: "INTERMEDIATE",
+      expReward: "+450 EXP",
+      lootDrops: ["A* Algorithm Script", "Pygame Grid Engine", "Breadth-First Search Node"],
+      title: "Pathfinder — Algorithm Visualizer in Python",
+      subtitle: "Interactive 2D grid visualizer demonstrating BFS, DFS, and A* pathfinding search logic",
       category: "ai",
-      categoryLabel: "Artificial Intelligence",
-      year: "2025",
-      techStack: ["Python", "PyTorch", "HuggingFace", "FastAPI", "Docker"],
-      techChip: "PYTHON • PYTORCH • TRANSFORMERS",
-      description: "An automated clinical report synthesizer utilizing quantized medical vision transformers to generate structured clinical impressions from diagnostic imaging.",
-      longDescription: "Mission Briefing: Developed to eliminate physician diagnostic latency. Fine-tuned a vision-language backbone on radiography scans paired with deterministic validation, achieving 94.2% diagnostic concordance while cutting report generation time by 68%.",
-      highlights: [
-        "94.2% semantic agreement against gold-standard radiologist ground truth",
-        "Sub-1.2s inference on consumer GPUs via 4-bit AWQ quantization",
-        "Deterministic guardrail pipeline mitigating anatomical hallucinations"
-      ],
-      metrics: [
-        { label: "Accuracy", value: "94.2%" },
-        { label: "Inference Latency", value: "1.18s" },
-        { label: "Model VRAM", value: "3.8 GB" }
-      ],
-      liveUrl: "https://github.com/muzainshehzade",
-      githubUrl: "https://github.com/muzainshehzade/neuro-scribe",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
-      aspectRatio: "aspect-[16/10]"
-    },
-    {
-      id: "cortex-search",
-      questCode: "QUEST_02",
-      difficulty: "A-CLASS",
-      expReward: "+3,200 EXP",
-      lootDrops: ["AST Tree Parser", "Hybrid Dense Index", "Sub-15ms Query Engine"],
-      title: "CortexSearch — Neural Hybrid Code Retrieval",
-      subtitle: "Dense semantic vector indexing & AST parsing for instant codebase navigation",
-      category: "ai",
-      categoryLabel: "Information Retrieval",
+      categoryLabel: "Algorithms & AI Basics",
       year: "2024",
-      techStack: ["Python", "TypeScript", "Qdrant", "Tree-sitter", "Next.js"],
-      techChip: "PYTHON • VECTOR DB • TREE-SITTER",
-      description: "Zero-latency hybrid code search engine combining dense AST vector embeddings with BM25 sparse lexical tokens for intuitive natural language codebase traversal.",
-      longDescription: "Mission Briefing: Eliminates developer search friction. Parses codebases into syntax trees with Tree-sitter, computes contextual token embeddings, and blends sparse and dense retrieval metrics using reciprocal rank fusion.",
+      techStack: ["Python", "Pygame", "Graph Theory", "Algorithms"],
+      techChip: "PYTHON • PYGAME • ALGORITHMS",
+      description: "An interactive visual tool that allows users to place obstacles, choose start and end nodes, and watch classic pathfinding algorithms find the shortest route in real time.",
+      longDescription: "Built to truly understand graph traversal and heuristics. Users can draw dynamic walls, set weighted nodes, and visually compare how Dijkstra, Breadth-First Search (BFS), and A* navigate obstacles step-by-step with real-time speed controls.",
       highlights: [
-        "Cross-language support for C, Python, TypeScript, and Go repositories",
-        "Sub-15ms query execution over 250,000+ line codebases",
-        "Local-first airgapped operation with zero cloud telemetry leak"
+        "Visual step-by-step frontier exploration displaying visited nodes in color",
+        "Custom wall drawing, maze generation, and heuristic distance toggles",
+        "Zero external framework dependencies other than Pygame for rendering"
       ],
       metrics: [
-        { label: "Query Speed", value: "< 15ms" },
-        { label: "Recall @ 5", value: "91.8%" },
-        { label: "Compression", value: "4.2x" }
+        { label: "Algorithms", value: "3 Modes" },
+        { label: "Grid Size", value: "50x50" },
+        { label: "Frame Rate", value: "60 FPS" }
       ],
-      liveUrl: "https://github.com/muzainshehzade",
-      githubUrl: "https://github.com/muzainshehzade/cortex-search",
+      liveUrl: "https://github.com/muzaain",
+      githubUrl: "https://github.com/muzaain/muzain-shehzade-v-m",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
       aspectRatio: "aspect-[16/10]"
     },
     {
-      id: "lumen-synth",
-      questCode: "QUEST_03",
-      difficulty: "A-CLASS",
-      expReward: "+2,800 EXP",
-      lootDrops: ["60 FPS Fragment Shader", "Signed Distance Fields", "WebAudio FFT Analyzer"],
-      title: "LumenVis — Architectural Audio-Visual Synthesizer",
-      subtitle: "Real-time WebAudio frequency decomposition with raymarched geometry",
-      category: "creative",
-      categoryLabel: "Creative Computing",
-      year: "2025",
-      techStack: ["TypeScript", "WebGL", "GLSL", "WebAudio API", "Tailwind CSS"],
-      techChip: "TYPESCRIPT • GLSL • WEBAUDIO",
-      description: "An editorial, monochromatic audio-reactive synthesizer translating polyphonic spectral frequencies into procedural ray-marched architectural surfaces.",
-      longDescription: "Mission Briefing: Raymarches brutalist obsidian architecture dynamically reactive to audio frequencies. FFT buffers drive signed distance field (SDF) shaders running smoothly at 60 FPS on mobile hardware.",
+      id: "gesture-counter",
+      questCode: "QUEST_02",
+      difficulty: "INTERMEDIATE",
+      expReward: "+500 EXP",
+      lootDrops: ["MediaPipe Landmark Pipe", "OpenCV Video Loop", "Hand Landmark Map"],
+      title: "VisionCount — Hand Landmark & Gesture Tracker",
+      subtitle: "Real-time webcam computer vision tool detecting finger counts & hand gestures",
+      category: "ai",
+      categoryLabel: "Computer Vision",
+      year: "2024",
+      techStack: ["Python", "OpenCV", "MediaPipe", "NumPy"],
+      techChip: "PYTHON • OPENCV • MEDIAPIPE",
+      description: "A computer vision project running on live webcam feeds that tracks 21 hand landmarks, counts active fingers, and triggers custom on-screen gesture commands.",
+      longDescription: "Developed while diving into practical computer vision in my first year. Utilizes Google MediaPipe's lightweight hand tracking framework alongside OpenCV to compute Euclidean distances between fingertip coordinates, enabling real-time finger counting and volume adjustments.",
       highlights: [
-        "Locked 60 FPS rendering pipeline in pure fragment shaders",
-        "Sub-band frequency smoothing with custom temporal exponential decay",
-        "Tactile cyber HUD displaying live spectral harmonics"
+        "Tracks 21 3D hand landmarks in real time with high accuracy",
+        "Custom heuristic classifying extended fingers vs closed fist",
+        "Includes a fun system volume control gesture mode"
       ],
       metrics: [
-        { label: "Frame Rate", value: "60 FPS" },
-        { label: "FFT Buffer", value: "2048 Bands" },
-        { label: "Bundle Size", value: "< 42 KB" }
+        { label: "Tracking FPS", value: "~30 FPS" },
+        { label: "Hand Points", value: "21 Nodes" },
+        { label: "Latency", value: "< 35ms" }
       ],
-      liveUrl: "https://github.com/muzainshehzade",
-      githubUrl: "https://github.com/muzainshehzade/lumen-synth",
-      image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+      liveUrl: "https://github.com/muzaain",
+      githubUrl: "https://github.com/muzaain/muzain-shehzade-v-m",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
       aspectRatio: "aspect-[16/10]"
     },
     {
-      id: "synapse-mesh",
-      questCode: "QUEST_04",
-      difficulty: "S-CLASS",
-      expReward: "+5,000 EXP",
-      lootDrops: ["gRPC Daemon Binary", "Laplace Noise Injector", "Edge Cluster Config"],
-      title: "SynapseMesh — Edge Distributed Federated Learning",
-      subtitle: "Differential privacy client for decentralized model aggregation",
-      category: "systems",
-      categoryLabel: "Distributed Systems",
+      id: "cli-voice-assistant",
+      questCode: "QUEST_03",
+      difficulty: "NOVICE",
+      expReward: "+350 EXP",
+      lootDrops: ["Audio Speech Recognizer", "Offline TTS Voice Engine", "Wikipedia Search Scraper"],
+      title: "JarvisLite — Python Desktop Voice Assistant",
+      subtitle: "Hands-free desktop assistant executing voice commands, searches, and task automation",
+      category: "ai",
+      categoryLabel: "Voice Automation",
       year: "2024",
-      techStack: ["C++", "Python", "gRPC", "Protobuf", "ONNX Runtime"],
-      techChip: "C++ • GRPC • FEDERATED AI",
-      description: "A lightweight decentralized federated learning protocol designed for resource-constrained edge devices with Renyi differential privacy guarantees.",
-      longDescription: "Mission Briefing: Enables multi-node model aggregation across heterogeneous edge clients without transferring sensitive raw data. Engineered in modern C++ with gRPC and dynamic gradient compression.",
+      techStack: ["Python", "pyttsx3", "SpeechRecognition", "Requests"],
+      techChip: "PYTHON • SPEECH • AUTOMATION",
+      description: "A friendly desktop voice companion that listens to microphone input, performs Google/Wikipedia queries, opens applications, and tells the time and weather.",
+      longDescription: "One of my very first full Python projects! JarvisLite takes spoken voice commands, parses user intent with keyword matching and regex, and speaks back responses offline via pyttsx3, with fallbacks for online queries.",
       highlights: [
-        "76% network bandwidth savings via Top-K gradient sparsification",
-        "Formal differential privacy guarantee with calibrated Laplace noise",
-        "Demonstrated on multi-node edge Raspberry Pi clusters"
+        "Completely offline voice feedback synthesis requiring no paid API keys",
+        "Can launch apps, open favorite study websites, and search Wikipedia summaries",
+        "Minimal CLI HUD displaying recognized speech and execution time"
       ],
       metrics: [
-        { label: "Bandwidth Saved", value: "76%" },
-        { label: "Dropout Shield", value: "40%" },
-        { label: "Binary Footprint", value: "4.1 MB" }
+        { label: "Commands", value: "15+ Types" },
+        { label: "Voice Mode", value: "Offline TTS" },
+        { label: "Response", value: "< 1.5s" }
       ],
-      liveUrl: "https://github.com/muzainshehzade",
-      githubUrl: "https://github.com/muzainshehzade/synapse-mesh",
+      liveUrl: "https://github.com/muzaain",
+      githubUrl: "https://github.com/muzaain/muzain-shehzade-v-m",
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
       aspectRatio: "aspect-[16/10]"
     },
     {
-      id: "chronicle-vault",
-      questCode: "QUEST_05",
-      difficulty: "A-CLASS",
-      expReward: "+3,000 EXP",
-      lootDrops: ["SQLite-Wasm Engine", "Force-Directed Graph", "OPFS Local Vault"],
-      title: "Chronicle — Minimal Obsidian Knowledge Vault",
-      subtitle: "Bi-directional Markdown workspace with local-first vector indexing",
+      id: "thejus-cgpa-calculator",
+      questCode: "QUEST_04",
+      difficulty: "NOVICE",
+      expReward: "+300 EXP",
+      lootDrops: ["KTU Credit Scheme Matrix", "LocalStorage Sync", "SGPA Calculator"],
+      title: "GradeSync — KTU / Thejus SGPA & CGPA Tracker",
+      subtitle: "Clean web calculator tailored for KTU syllabus credit points & semester grade tracking",
       category: "web",
-      categoryLabel: "Web & Systems",
+      categoryLabel: "Student Web Tool",
       year: "2024",
-      techStack: ["React", "TypeScript", "Tailwind CSS", "SQLite-Wasm", "IndexedDB"],
-      techChip: "REACT • TYPESCRIPT • SQLITE",
-      description: "A serene, local-first markdown workspace featuring bi-directional wiki linking, graph-based thought visualization, and sub-10ms full-text SQLite indexing.",
-      longDescription: "Mission Briefing: Provides an offline-first knowledge vault with zero latency and zero cloud tracking. Harnesses Origin Private File System (OPFS) and in-browser SQLite-Wasm for immediate query responses.",
+      techStack: ["JavaScript", "HTML5", "Tailwind CSS", "LocalStorage"],
+      techChip: "JAVASCRIPT • HTML5 • TAILWIND",
+      description: "A fast, distraction-free web tool built for fellow engineering classmates to calculate semester SGPA, forecast cumulative CGPA, and save grade sheets locally.",
+      longDescription: "Created to solve a real pain point for first-year peers navigating KTU engineering grade credits. Features pre-filled subject credits for CS(AI) semesters, grade dropdowns (O, A+, A, B+, B...), and instant local storage saving.",
       highlights: [
-        "100% offline capability with OPFS persistent storage",
-        "Interactive 2D canvas knowledge galaxy with force physics",
-        "Dark visual aesthetic with zero typing distraction"
+        "Pre-configured for KTU B.Tech credit weighting schemes",
+        "Instant calculation with 0 reload and offline LocalStorage persistence",
+        "Minimal dark mode interface designed for quick mobile use"
       ],
       metrics: [
-        { label: "Write Latency", value: "0ms local" },
-        { label: "Index Query", value: "< 8ms" },
-        { label: "Memory Footprint", value: "18 MB" }
+        { label: "Semesters", value: "S1 — S8" },
+        { label: "Save Mode", value: "100% Local" },
+        { label: "Page Load", value: "< 0.3s" }
       ],
-      liveUrl: "https://github.com/muzainshehzade",
-      githubUrl: "https://github.com/muzainshehzade/chronicle-vault",
+      liveUrl: "https://github.com/muzaain",
+      githubUrl: "https://github.com/muzaain/muzain-shehzade-v-m",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
       aspectRatio: "aspect-[16/10]"
     },
     {
-      id: "sentience-voice",
-      questCode: "QUEST_06",
-      difficulty: "S-CLASS",
-      expReward: "+4,800 EXP",
-      lootDrops: ["WebRTC Gateway", "Acoustic VAD Filter", "Speculative Decoder"],
-      title: "Sentience — Low-Latency Voice Companion",
-      subtitle: "Sub-300ms duplex conversational agent with emotional timbre adaptation",
-      category: "ai",
-      categoryLabel: "Artificial Intelligence",
-      year: "2025",
-      techStack: ["Python", "WebRTC", "Whisper", "VITS", "FastAPI"],
-      techChip: "PYTHON • WEBRTC • WHISPER",
-      description: "An end-to-end full-duplex conversational voice agent featuring speculative token generation and acoustic interruption detection.",
-      longDescription: "Mission Briefing: Built for natural human-machine verbal cadence. Streams audio through WebRTC, performs speculative streaming decoding, and halts speech synthesis within 40ms upon human interruption.",
+      id: "c-terminal-dungeon",
+      questCode: "QUEST_05",
+      difficulty: "INTERMEDIATE",
+      expReward: "+400 EXP",
+      lootDrops: ["Pointers & Struct Array", "File IO Save System", "ASCII Map Generator"],
+      title: "DungeonCrawler — Text RPG in Pure C",
+      subtitle: "Classic turn-based terminal RPG exploring pointer arithmetic, structs & file saving",
+      category: "games",
+      categoryLabel: "C Systems & Games",
+      year: "2024",
+      techStack: ["C", "GCC", "Data Structures", "File I/O"],
+      techChip: "C • GCC • STRUCTS • FILE I/O",
+      description: "A retro text-based dungeon crawler game written in pure C demonstrating memory allocation, custom structs, turn-based combat math, and persistent save states.",
+      longDescription: "Built alongside my first-year C programming coursework. The game puts you in an ASCII dungeon with enemy encounters, inventory equipment management using dynamic arrays, and binary file save/load routines.",
       highlights: [
-        "280ms average end-of-speech to synthesized acoustic response",
-        "Hardware-level barge-in detection preventing awkward voice collisions",
-        "Streaming neural vocoder tuned for crisp, intelligible speech"
+        "100% standard C without bloated third-party dependencies",
+        "Clean structure separating game loop, inventory pointers, and combat math",
+        "Custom high-score and player save file system using standard file I/O"
       ],
       metrics: [
-        { label: "Roundtrip", value: "280ms" },
-        { label: "Barge-in Cutoff", value: "< 40ms" },
-        { label: "WER (Clear)", value: "3.4%" }
+        { label: "Language", value: "Pure C99" },
+        { label: "Memory Leak", value: "0 bytes" },
+        { label: "Binary Size", value: "< 45 KB" }
       ],
-      liveUrl: "https://github.com/muzainshehzade",
-      githubUrl: "https://github.com/muzainshehzade/sentience-voice",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
+      liveUrl: "https://github.com/muzaain",
+      githubUrl: "https://github.com/muzaain/muzain-shehzade-v-m",
+      image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+      aspectRatio: "aspect-[16/10]"
+    },
+    {
+      id: "student-study-timer",
+      questCode: "QUEST_06",
+      difficulty: "NOVICE",
+      expReward: "+300 EXP",
+      lootDrops: ["Pomodoro Interval Logic", "Daily Streak Counter", "WebAudio Bell"],
+      title: "FocusArc — Minimalist Study Session Timer",
+      subtitle: "Serene study companion with customizable intervals, subject logging, and audio chimes",
+      category: "web",
+      categoryLabel: "Frontend Craft",
+      year: "2024",
+      techStack: ["React", "TypeScript", "Tailwind CSS", "WebAudio"],
+      techChip: "REACT • TYPESCRIPT • TAILWIND",
+      description: "A minimalist, aesthetic study companion designed to prevent burnout during exam season with Pomodoro technique cycles and daily study logs.",
+      longDescription: "Inspired by the 'Noir & Lumen' aesthetic, FocusArc helps students maintain deep focus while studying engineering mathematics and C programming. Built with React and TypeScript.",
+      highlights: [
+        "Clean monochromatic timer with smooth circular SVG progress",
+        "Synthesized focus and rest bells using pure Web Audio API",
+        "Study history and subject tags saved in browser memory"
+      ],
+      metrics: [
+        { label: "Bundle Size", value: "24 KB" },
+        { label: "Distraction", value: "0 ads" },
+        { label: "Theme", value: "Noir & Gold" }
+      ],
+      liveUrl: "https://github.com/muzaain",
+      githubUrl: "https://github.com/muzaain/muzain-shehzade-v-m",
+      image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
       aspectRatio: "aspect-[16/10]"
     }
   ],
 
   skills: [
     {
-      title: "Neural Core & Deep Learning",
+      title: "Core Programming & Foundations",
       number: "TIER 01",
-      description: "Model architectures, mathematical optimization, and inference acceleration.",
+      description: "Fundamental languages, memory management, and algorithmic thinking.",
       skills: [
-        { name: "PyTorch & TorchVision", level: 96, rank: "S", tag: "MAIN SKILL", manaCost: "15 MP" },
-        { name: "Transformers (HuggingFace)", level: 92, rank: "S", tag: "NLP / VISION", manaCost: "25 MP" },
-        { name: "TensorFlow & Keras", level: 85, rank: "A", tag: "MODELS", manaCost: "20 MP" },
-        { name: "Vector Embeddings & RAG", level: 90, rank: "S", tag: "RETRIEVAL", manaCost: "10 MP" },
-        { name: "OpenCV & Vision Filters", level: 86, rank: "A", tag: "IMAGING", manaCost: "15 MP" },
-        { name: "Scikit-Learn & Math", level: 94, rank: "S", tag: "FOUNDATION", manaCost: "5 MP" },
+        { name: "C Programming", level: 85, rank: "A", tag: "CAMPUS CORE", manaCost: "10 MP" },
+        { name: "Python", level: 88, rank: "S", tag: "PRIMARY LANGUAGE", manaCost: "5 MP" },
+        { name: "Data Structures Basics", level: 78, rank: "A", tag: "LOGIC", manaCost: "15 MP" },
+        { name: "Algorithms (Sorting & Search)", level: 80, rank: "A", tag: "DSA", manaCost: "15 MP" },
+        { name: "Object-Oriented Concepts", level: 82, rank: "A", tag: "OOP", manaCost: "10 MP" },
+        { name: "C++ Basics", level: 72, rank: "LEARNING", tag: "IN PROGRESS", manaCost: "10 MP" },
       ]
     },
     {
-      title: "Systems, Memory & Low-Level Craft",
+      title: "Artificial Intelligence & Data (Learning)",
       number: "TIER 02",
-      description: "Memory discipline, algorithms, and computational efficiency.",
+      description: "First-year exploration into machine learning foundations, math, and data libraries.",
       skills: [
-        { name: "Python Core", level: 98, rank: "S", tag: "PRIMARY WEAPON", manaCost: "5 MP" },
-        { name: "C & Systems Programming", level: 92, rank: "S", tag: "RAW HARDWARE", manaCost: "30 MP" },
-        { name: "TypeScript & JavaScript", level: 94, rank: "S", tag: "FULL STACK", manaCost: "10 MP" },
-        { name: "C++ (Algorithms & DSA)", level: 88, rank: "A", tag: "COMPETITIVE", manaCost: "25 MP" },
-        { name: "SQL & Query Engine", level: 89, rank: "A", tag: "DATA BASE", manaCost: "10 MP" },
-        { name: "Linux & Bash Automation", level: 92, rank: "S", tag: "TERMINAL OS", manaCost: "5 MP" },
+        { name: "NumPy & Scientific Python", level: 82, rank: "A", tag: "ARRAYS", manaCost: "10 MP" },
+        { name: "Pandas Data Exploration", level: 78, rank: "A", tag: "DATASETS", manaCost: "10 MP" },
+        { name: "OpenCV Computer Vision Basics", level: 80, rank: "A", tag: "IMAGE LOGIC", manaCost: "15 MP" },
+        { name: "Matplotlib & Visualization", level: 84, rank: "A", tag: "PLOTS", manaCost: "5 MP" },
+        { name: "Machine Learning Foundations", level: 75, rank: "LEARNING", tag: "MATH & THEORY", manaCost: "20 MP" },
+        { name: "Prompting & LLM APIs", level: 88, rank: "S", tag: "MODERN AI", manaCost: "5 MP" },
       ]
     },
     {
-      title: "Tactile Web & 60fps UI Engines",
+      title: "Web Engineering & Frontend Craft",
       number: "TIER 03",
-      description: "Interactive UI/UX craft, component systems, and fluid physics.",
+      description: "Building responsive, modern, and accessible web experiences.",
       skills: [
-        { name: "Next.js (App Router)", level: 95, rank: "S", tag: "ENGINE CORE", manaCost: "10 MP" },
-        { name: "React 18 / 19", level: 94, rank: "S", tag: "REACTIVE UI", manaCost: "10 MP" },
-        { name: "Tailwind CSS & Design Tokens", level: 96, rank: "S", tag: "AESTHETICS", manaCost: "5 MP" },
-        { name: "Framer Motion & Spring Physics", level: 92, rank: "S", tag: "ANIMATION", manaCost: "15 MP" },
-        { name: "WebGL & Shader Shaders", level: 78, rank: "B", tag: "GRAPHICS", manaCost: "35 MP" },
-        { name: "WebAudio API", level: 84, rank: "A", tag: "SYNTHESIS", manaCost: "10 MP" },
+        { name: "HTML5 & Semantic Structure", level: 92, rank: "S", tag: "WEB CORE", manaCost: "5 MP" },
+        { name: "CSS3 & Modern Styling", level: 90, rank: "S", tag: "LAYOUTS", manaCost: "5 MP" },
+        { name: "Tailwind CSS", level: 92, rank: "S", tag: "UTILITY FIRST", manaCost: "5 MP" },
+        { name: "JavaScript (ES6+)", level: 82, rank: "A", tag: "SCRIPTING", manaCost: "10 MP" },
+        { name: "React Basics", level: 78, rank: "A", tag: "COMPONENTS", manaCost: "15 MP" },
+        { name: "Next.js Basics", level: 76, rank: "LEARNING", tag: "FRAMEWORK", manaCost: "15 MP" },
       ]
     },
     {
-      title: "DevOps, Containers & Guild Tooling",
+      title: "Tools, Terminal & Student Workflow",
       number: "TIER 04",
-      description: "Reproducible runtimes, deployment pipelines, and version control.",
+      description: "Developer environment, version control, and collegiate workflow tools.",
       skills: [
-        { name: "Git & Collaborative GitHub", level: 95, rank: "S", tag: "VERSION SHIELD", manaCost: "0 MP" },
-        { name: "Docker & Containerization", level: 88, rank: "A", tag: "SANDBOX", manaCost: "15 MP" },
-        { name: "FastAPI Async Backends", level: 94, rank: "S", tag: "REST API", manaCost: "10 MP" },
-        { name: "Vercel & Edge Deployment", level: 93, rank: "S", tag: "WARP HOST", manaCost: "5 MP" },
-        { name: "Neovim & VS Code Setup", level: 96, rank: "S", tag: "TACTICAL IDE", manaCost: "0 MP" },
-        { name: "CI/CD & Testing", level: 85, rank: "A", tag: "AUTOMATION", manaCost: "10 MP" },
+        { name: "Git & GitHub", level: 88, rank: "S", tag: "VERSION CONTROL", manaCost: "5 MP" },
+        { name: "Linux & Bash Terminal", level: 80, rank: "A", tag: "COMMAND LINE", manaCost: "10 MP" },
+        { name: "VS Code Setup", level: 95, rank: "S", tag: "PRIMARY IDE", manaCost: "0 MP" },
+        { name: "GCC / Clang Compiler", level: 84, rank: "A", tag: "C BUILDS", manaCost: "10 MP" },
+        { name: "Jupyter Notebooks", level: 86, rank: "A", tag: "EXPLORATION", manaCost: "5 MP" },
+        { name: "Markdown Documentation", level: 94, rank: "S", tag: "NOTES & SPECS", manaCost: "0 MP" },
       ]
     }
   ],
 
   marqueeSkills: [
-    "PYTORCH [LVL 96]",
-    "C SYSTEMS [LVL 92]",
-    "NEXT.JS [LVL 95]",
-    "TRANSFORMERS [LVL 92]",
-    "TYPESCRIPT [LVL 94]",
-    "FASTAPI [LVL 94]",
-    "DOCKER [LVL 88]",
-    "VECTOR EMBEDDINGS [LVL 90]",
-    "WEBAUDIO SYNTH [LVL 84]",
-    "FRAMER MOTION [LVL 92]",
-    "LINUX KERNEL [LVL 92]",
-    "SQLITE [LVL 89]"
+    "1ST YEAR CS (AI)",
+    "THEJUS ENGG COLLEGE",
+    "C PROGRAMMING",
+    "PYTHON",
+    "DATA STRUCTURES",
+    "OPENCV BASICS",
+    "NUMPY",
+    "PANDAS",
+    "TAILWIND CSS",
+    "JAVASCRIPT",
+    "REACT BASICS",
+    "GIT & GITHUB",
+    "LINUX CLI",
+    "ALGORITHMS",
+    "MATHEMATICS FOR AI"
   ],
 
   milestones: [
     {
-      period: "2022 — Present (Target 2026)",
-      role: "Class: B.Tech CS (AI) Cadet",
+      period: "2024 — Present (Batch 2024–2028)",
+      role: "B.Tech in Computer Science & Engineering (Artificial Intelligence)",
       organization: "Thejus Engineering College, Thrissur, Kerala",
-      location: "Thrissur Grid",
-      description: "First-batch cohort. Grinding fundamental skill nodes: discrete mathematics, operating systems, data structures, linear algebra, and deep learning architectures.",
-      questStatus: "ACTIVE IN PROGRESS"
+      location: "Thrissur, India",
+      description: "First-batch cohort! Immersed in foundational semesters: C programming, engineering mathematics, problem solving, discrete structures, and introduction to artificial intelligence.",
+      questStatus: "CURRENTLY GRINDING"
     },
     {
-      period: "2024 — Present",
-      role: "Lead Officer & Guild Contributor",
-      organization: "AI & Systems Syndicate",
-      location: "Kerala Node",
-      description: "Conducting technical raid workshops on applied deep learning, neural search vectors, and modern web engines for collegiate engineering cadets.",
-      questStatus: "ACTIVE IN PROGRESS"
+      period: "2024",
+      role: "Hands-on Project Prototyping",
+      organization: "Personal & Academic Builds",
+      location: "Kerala, India",
+      description: "Building daily code experiments: algorithm visualizers in Python, computer vision gesture detectors with OpenCV, and student utility tools.",
+      questStatus: "CURRENTLY GRINDING"
     },
     {
-      period: "2023 — 2024",
-      role: "Hackathon Raid Winner & Challenger",
-      organization: "State & Collegiate Tech Summits",
-      location: "Kerala",
-      description: "Constructed rapid prototypes under 36-hour sprint constraints; awarded honors for multimodal clinical assistants.",
+      period: "2024",
+      role: "Higher Secondary Completion (Computer Science Stream)",
+      organization: "Kerala State Board",
+      location: "Kerala, India",
+      description: "Completed higher secondary education with a strong focus on mathematics and computer science fundamentals, sparking the ambition to pursue AI engineering.",
       questStatus: "COMPLETED"
     }
   ],
 
   philosophy: {
-    quote: "Simplicity is the prerequisite for reliability.",
-    quoteAuthor: "Edsger W. Dijkstra",
+    quote: "The only way to learn a new programming language is by writing programs in it.",
+    quoteAuthor: "Dennis Ritchie (Creator of C)",
     paragraphs: [
-      "In game architecture as in intelligent systems, peak performance stems from rigorous economy. Every unnecessary allocation is a latency penalty; every decorative clutter is cognitive drag.",
-      "As an Artificial Intelligence undergraduate in the inaugural batch at Thejus Engineering College in Thrissur, my campaign is grounded in mathematical discipline and hardware empathy. Whether tuning loss curves in PyTorch, managing pointers in C, or locking browser frames at 60 FPS, the philosophy never wavers: zero bloat, ruthless optimization, and absolute stability.",
-      "I believe the greatest software does not overwhelm the player with noise, but empowers them with silent, effortless mastery."
+      "As a first-year student in the inaugural Computer Science and Artificial Intelligence batch at Thejus Engineering College, Thrissur, my goal is simple: build strong, unshakeable fundamentals. I believe you cannot build great artificial intelligence without first understanding how memory, data structures, and algorithms operate at the hardware level.",
+      "That is why I spend time writing C code, tracing pointer logic, and implementing sorting and graph traversal algorithms by hand before jumping into high-level abstractions. At the same time, Python and modern web tools allow me to bring ideas to life quickly—from computer vision experiments to student utilities.",
+      "I am excited for the road ahead: diving deeper into linear algebra, calculus for machine learning, neural networks, and open-source collaboration. Every single day is an opportunity to learn, build, and level up."
     ]
   }
 };

@@ -63,7 +63,7 @@ export function PageIntro() {
               <span className="w-2 h-2 rounded-full bg-copper animate-pulse" />
               <span>INITIALIZING ARCHIVE</span>
             </div>
-            <span>THEJUS &apos;26 • CS (AI)</span>
+            <span>1ST YEAR • CS (AI) INITIATE</span>
           </div>
 
           {/* Center Brand Title */}

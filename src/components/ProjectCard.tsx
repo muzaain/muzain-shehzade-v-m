@@ -91,9 +91,11 @@ export function ProjectCard({ project, onOpenModal, index }: ProjectCardProps) {
             {project.questCode}
           </span>
           <span className={`px-2 py-0.5 rounded text-[9px] font-mono tracking-wider font-medium uppercase border backdrop-blur-md shadow-sm ${
-            project.difficulty === "S-CLASS"
+            project.difficulty === "CHALLENGE"
               ? "bg-rose-950/80 border-rose-500/40 text-rose-300"
-              : "bg-amber-950/80 border-amber-500/40 text-amber-300"
+              : project.difficulty === "INTERMEDIATE"
+              ? "bg-amber-950/80 border-amber-500/40 text-amber-300"
+              : "bg-emerald-950/80 border-emerald-500/40 text-emerald-300"
           }`}>
             {project.difficulty}
           </span>

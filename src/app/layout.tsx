@@ -14,37 +14,37 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Muzain Shehzade V M — AI Engineer & Systems Developer",
+  title: "Muzain Shehzade V M — 1st Year B.Tech CS (AI) Student",
   description:
-    "First-batch B.Tech CS (AI) student at Thejus Engineering College, Thrissur, Kerala. Building intelligent systems, deep learning architectures, and editorial web experiences with quiet precision.",
+    "First-year Computer Science & Artificial Intelligence student at Thejus Engineering College, Thrissur, Kerala. Building algorithms, mastering C and Python, and exploring AI foundations.",
   keywords: [
     "Muzain Shehzade",
     "Muzain Shehzade V M",
     "Thejus Engineering College",
-    "AI Student Thrissur",
-    "Kerala AI Engineer",
-    "Deep Learning",
-    "PyTorch",
+    "1st Year CS AI Student",
+    "Thrissur Kerala",
+    "Python",
+    "C Programming",
+    "Computer Vision",
     "Next.js Portfolio",
     "Noir and Lumen",
-    "Machine Learning Developer",
   ],
-  authors: [{ name: "Muzain Shehzade V M", url: "https://github.com/muzainshehzade" }],
+  authors: [{ name: "Muzain Shehzade V M", url: "https://github.com/muzaain" }],
   creator: "Muzain Shehzade V M",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://muzainshehzade.vercel.app",
-    title: "Muzain Shehzade V M — Portfolio Vol. 01",
+    url: "https://github.com/muzaain",
+    title: "Muzain Shehzade V M — 1st Year CS (AI) Portfolio",
     description:
-      "B.Tech CS (AI) at Thejus Engineering College, Thrissur. Building intelligent systems with quiet precision.",
+      "First-year B.Tech CS (AI) at Thejus Engineering College, Thrissur. Building algorithms and exploring AI from the fundamentals up.",
     siteName: "Muzain Shehzade Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muzain Shehzade V M — Portfolio Vol. 01",
+    title: "Muzain Shehzade V M — 1st Year CS (AI) Portfolio",
     description:
-      "B.Tech CS (AI) at Thejus Engineering College, Thrissur. Building intelligent systems with quiet precision.",
+      "First-year B.Tech CS (AI) at Thejus Engineering College, Thrissur. Building algorithms and exploring AI from the fundamentals up.",
     creator: "@muzainshehzade",
   },
   robots: {

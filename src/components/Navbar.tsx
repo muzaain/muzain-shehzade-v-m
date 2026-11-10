@@ -110,7 +110,7 @@ export function Navbar({ onOpenArcade }: { onOpenArcade?: () => void }) {
 
             <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-subtle border border-stroke text-[11px] font-mono text-muted">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>THEJUS &apos;26 // LVL 22</span>
+              <span>1ST YEAR CS (AI) // THEJUS</span>
             </div>
 
             <a

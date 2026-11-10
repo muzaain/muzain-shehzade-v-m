@@ -14,11 +14,10 @@ export function SelectedWork() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filterCategories = [
-    { id: "all", label: "All Quests" },
-    { id: "ai", label: "AI & Neural Quests" },
-    { id: "systems", label: "Distributed Raids" },
-    { id: "web", label: "Web & Knowledge" },
-    { id: "creative", label: "Creative Shaders" },
+    { id: "all", label: "All Projects" },
+    { id: "ai", label: "AI & Algorithms" },
+    { id: "web", label: "Student Web Tools" },
+    { id: "games", label: "C & Games" },
   ];
 
   const filteredProjects = useMemo(() => {
@@ -32,18 +31,18 @@ export function SelectedWork() {
       <div className="space-y-4 max-w-3xl">
         <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-muted">
           <span className="text-copper font-medium">{"// 01"}</span>
-          <span>GUILD QUEST ARCHIVE</span>
+          <span>FIRST-YEAR PROJECT ARCHIVE</span>
           <span className="text-white/20">—</span>
-          <span>COMPLETED CAMPAIGNS</span>
+          <span>CODE BUILDS &amp; LABS</span>
         </div>
 
         <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.1] text-charcoal">
-          Guild Quest Board &amp; Deployed Models.
+          Selected Projects &amp; Experiments.
         </h2>
 
         <p className="text-sm sm:text-base text-muted font-light leading-relaxed">
-          Tactical mission archive of deep learning prototypes, low-latency C pipelines, and
-          distributed federated clients engineered with mathematical rigor and game-engine fluidity.
+          A collection of projects built during my first year: Python algorithm visualizers,
+          computer vision gesture experiments, C terminal games, and practical student web tools.
         </p>
       </div>
 
