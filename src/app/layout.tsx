@@ -39,6 +39,14 @@ export const metadata: Metadata = {
     description:
       "First-year B.Tech CS (AI) at Thejus Engineering College, Thrissur. Building algorithms and exploring AI from the fundamentals up.",
     siteName: "Muzain Shehzade Portfolio",
+    images: [
+      {
+        url: "/images/muzain.jpg",
+        width: 1080,
+        height: 1920,
+        alt: "Muzain Shehzade V M",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -46,6 +54,7 @@ export const metadata: Metadata = {
     description:
       "First-year B.Tech CS (AI) at Thejus Engineering College, Thrissur. Building algorithms and exploring AI from the fundamentals up.",
     creator: "@muzainshehzade",
+    images: ["/images/muzain.jpg"],
   },
   robots: {
     index: true,

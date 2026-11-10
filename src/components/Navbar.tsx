@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
 import { ArrowUpRight, Menu, X, Gamepad2 } from "lucide-react";
 import { sound } from "@/utils/sound";
+import Image from "next/image";
 
 export function Navbar({ onOpenArcade }: { onOpenArcade?: () => void }) {
   const [hidden, setHidden] = useState(false);
@@ -62,8 +63,16 @@ export function Navbar({ onOpenArcade }: { onOpenArcade?: () => void }) {
             className="flex items-center space-x-3 group"
             data-cursor="pointer"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-copper group-hover:scale-125 transition-transform duration-300" />
-            <span className="font-serif text-xl sm:text-2xl tracking-tight font-medium text-charcoal">
+            <div className="relative w-8 h-8 rounded-full overflow-hidden border border-copper/50 shadow-sm shrink-0 group-hover:border-copper group-hover:scale-105 transition-all">
+              <Image
+                src={portfolioData.profile.avatar}
+                alt="Muzain"
+                fill
+                sizes="32px"
+                className="object-cover object-top"
+              />
+            </div>
+            <span className="font-serif text-xl sm:text-2xl tracking-tight font-medium text-charcoal group-hover:text-copper transition-colors">
               MUZAIN
             </span>
             <span className="text-[10px] font-mono tracking-widest text-muted uppercase hidden sm:inline pl-2.5 border-l border-stroke">

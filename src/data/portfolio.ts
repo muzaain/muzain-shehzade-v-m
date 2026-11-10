@@ -73,6 +73,7 @@ export interface PortfolioData {
     name: string;
     shortName: string;
     monogram: string;
+    avatar: string;
     title: string;
     status: string;
     availableFor: string;
@@ -145,6 +146,7 @@ export const portfolioData: PortfolioData = {
     name: "Muzain Shehzade V M",
     shortName: "Muzain",
     monogram: "MS",
+    avatar: "/images/muzain.jpg",
     title: "1st Year B.Tech Computer Science (AI) Student",
     status: "FIRST-YEAR STUDENT // OPEN FOR HACKATHONS & COLLABS",
     availableFor: "Open for beginner-friendly open-source builds, student hackathons, and study collaborations",

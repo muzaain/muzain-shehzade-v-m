@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
 import { GraduationCap, MapPin, Quote } from "lucide-react";
+import Image from "next/image";
 
 export function PhilosophyAbout() {
   const { profile, philosophy, milestones, player } = portfolioData;
@@ -39,9 +40,15 @@ export function PhilosophyAbout() {
           {/* RPG Character Attribute Sheet Card */}
           <div className="p-6 rounded-2xl bg-surface border border-copper/30 shadow-card space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-stroke">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-surface-elevated border border-copper/40 flex items-center justify-center font-serif text-xl text-copper font-medium shadow-sm">
-                  {profile.monogram}
+              <div className="flex items-center gap-3.5">
+                <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-copper/50 shadow-md shrink-0 bg-surface-elevated">
+                  <Image
+                    src={profile.avatar}
+                    alt={profile.name}
+                    fill
+                    sizes="56px"
+                    className="object-cover object-top filter contrast-[1.05]"
+                  />
                 </div>
                 <div>
                   <h3 className="font-serif text-lg text-charcoal leading-snug">
